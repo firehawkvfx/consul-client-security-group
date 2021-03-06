@@ -52,7 +52,7 @@ resource "aws_security_group" "consul_client" {
     protocol    = "tcp"
     from_port   = 22
     to_port     = 22
-    cidr_blocks = set( var.permitted_cidr_list )
+    cidr_blocks = toset( var.permitted_cidr_list )
     description = "ssh"
   }
 
