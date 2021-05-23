@@ -1,6 +1,6 @@
 locals {
   extra_tags = {
-    role  = "consul_client"
+    role  = "consul_client_vault_vpc"
     route = "public"
   }
   name = "consul_client"
