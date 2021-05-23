@@ -14,7 +14,7 @@ resource "aws_security_group" "consul_client" {
 }
 
 module "security_group_rules" {
-  source            = "git::git@github.com:hashicorp/terraform-aws-consul.git//modules/consul-client-security-group-rules?ref=v0.0.2"
+  source            = "github.com/hashicorp/terraform-aws-consul.git//modules/consul-client-security-group-rules?ref=v0.0.2"
   security_group_id = resource.aws_security_group.security_group_id
 }
 
