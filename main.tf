@@ -3,12 +3,12 @@ locals {
     role  = "consul_client_vault_vpc"
     route = "public"
   }
-  name = "consul_client"
+  name = var.name
   security_group_id = length(aws_security_group.consul_client) > 0 ? aws_security_group.consul_client[0].id : null
 }
 resource "aws_security_group" "consul_client" {
   count       = var.create_vpc ? 1 : 0
-  name        = "consul_client"
+  name        = local.name
   description = "Security group for Consul Clients"
   vpc_id      = var.vpc_id
   tags        = merge(tomap({"Name": local.name}), var.common_tags, local.extra_tags)

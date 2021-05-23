@@ -9,3 +9,8 @@ variable "common_tags" {
   type        = map(string)
   default     = {}
 }
+variable "name" {
+  description = "The name of the security group"
+  default = "consul_client"
+  type = string
+}
