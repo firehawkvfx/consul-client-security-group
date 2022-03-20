@@ -29,7 +29,7 @@ variable "common_tags" {
 }
 
 output "consul_client_sg_id" {
-    value = element( concat( aws_security_group.consul_client.*.id, list("") ), 0 )
+    value = element( concat( aws_security_group.consul_client.*.id, tolist([""]) ), 0 )
 }
 
 resource "aws_security_group" "consul_client" {
