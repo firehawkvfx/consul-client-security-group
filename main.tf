@@ -38,7 +38,7 @@ resource "aws_security_group" "consul_client" {
   vpc_id      = var.vpc_id
   description = "Consul Client Security Group"
 
-  tags = merge(map("Name", format("%s", local.name)), var.common_tags, local.extra_tags)
+  tags = merge(tomap({"Name": format("%s", local.name)}), var.common_tags, local.extra_tags)
 
   ingress {
     protocol    = "-1"
