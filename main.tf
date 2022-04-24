@@ -29,10 +29,6 @@ variable "common_tags" {
   default     = {}
 }
 
-output "consul_client_sg_id" {
-    value = element( concat( aws_security_group.consul_client.*.id, tolist([""]) ), 0 )
-}
-
 resource "aws_security_group" "consul_client" {
   count       = var.create_vpc ? 1 : 0
   name        = local.name
